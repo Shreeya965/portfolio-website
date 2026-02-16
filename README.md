@@ -38,3 +38,11 @@ Visit the live portfolio: [https://your-site-name.netlify.app](https://your-site
 - Email: shreeyagulawani16@gmail.com
 - LinkedIn: [linkedin.com/in/shreeya-gulawani](https://linkedin.com/in/shreeya-gulawani)
 - GitHub: [github.com/Shreeya965](https://github.com/Shreeya965)
+
+---
+
+## 🚀 Deployment
+
+This site is automatically deployed via Netlify. Any changes pushed to the `main` branch will trigger an automatic rebuild and deployment.
+
+**Last Updated**: February 16, 2026
