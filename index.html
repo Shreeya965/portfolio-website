@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreeya Gulawani | Data Analyst Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #FDFCF8;
+        }
+
+        .bento-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(74, 66, 56, 0.05);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(216, 140, 154, 0.15);
+            border-color: rgba(216, 140, 154, 0.3);
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero-img-container {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+
+            0%,
+            100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+
+            34% {
+                border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+            }
+
+            67% {
+                border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+            }
+        }
+    </style>
+    <script>
+        // Tailwind Configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        '3xl': '1920px',
+                        '4xl': '2560px',
+                        '5xl': '3840px',
+                    },
+                    colors: {
+                        cream: '#FDFCF8',
+                        rose: '#D88C9A',
+                        roseDark: '#C07584',
+                        mocha: '#4A4238',
+                        dark: '#1A1714',
+                        glass: 'rgba(255, 255, 255, 0.8)'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(74, 66, 56, 0.08)',
+                    }
+                }
+            }
+        }
+
+        // GSAP Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Staggered Reveal Animation
+            const revealElements = document.querySelectorAll(".reveal-up");
+            revealElements.forEach((element) => {
+                gsap.to(element, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body class="text-dark antialiased selection:bg-rose/20 selection:text-mocha">
+
+    <!-- Navigation -->
+    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center">
+        <div
+            class="bg-glass backdrop-blur-md px-8 py-3 rounded-full border border-white/50 shadow-sm flex items-center gap-8">
+
+            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-mocha/80">
+                <a href="#about" class="hover:text-rose transition-colors">Profile</a>
+                <a href="#skills" class="hover:text-rose transition-colors">Competencies</a>
+                <a href="#projects" class="hover:text-rose transition-colors">Projects</a>
+                <a href="#certifications" class="hover:text-rose transition-colors">Certifications</a>
+            </div>
+            <a href="#contact"
+                class="bg-dark text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full hover:bg-rose transition-colors">
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-24 3xl:pt-40 px-6 3xl:px-12 relative overflow-hidden">
+        <div
+            class="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[2000px] 5xl:max-w-[3000px] mx-auto grid lg:grid-cols-2 gap-12 3xl:gap-24 items-center w-full">
+            <div class="order-2 lg:order-1 space-y-8 3xl:space-y-16 z-10">
+                <div
+                    class="reveal-up inline-block px-4 py-2 3xl:px-8 3xl:py-4 bg-rose/10 rounded-full text-rose text-xs 3xl:text-base font-bold uppercase tracking-widest">
+                    MSc. Data Science • 3+ Years Exp
+                </div>
+                <h1
+                    class="reveal-up text-6xl md:text-8xl 3xl:text-9xl 5xl:text-[12rem] font-serif leading-[0.9] text-dark">
+                    Shreeya <br /> <span class="italic text-rose">Gulawani</span>
+                </h1>
+                <p
+                    class="reveal-up text-lg 3xl:text-2xl 5xl:text-4xl text-mocha/70 max-w-xl 3xl:max-w-3xl leading-relaxed">
+                    Data Analyst transforming complex data landscapes into strategic intelligence. I operate where data
+                    meets direction, specializing in predictive modeling, automated reporting, and impact-driven
+                    visualization.
+                </p>
+                <div class="reveal-up flex gap-4 3xl:gap-8 pt-4">
+                    <a href="https://drive.google.com/file/d/1NqbJGYaqfN2kVHCCJaUvmfAw6MUrmqRJ/view?usp=drive_link"
+                        target="_blank"
+                        class="px-8 py-4 3xl:px-12 3xl:py-6 bg-dark text-cream rounded-full text-xs 3xl:text-base font-bold uppercase tracking-widest hover:bg-rose transition-colors shadow-lg flex items-center gap-2">
+                        Resume
+                    </a>
+                    <a href="#contact"
+                        class="px-8 py-4 3xl:px-12 3xl:py-6 border border-mocha/20 rounded-full text-xs 3xl:text-base font-bold uppercase tracking-widest hover:border-rose hover:text-rose transition-colors">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2 flex justify-center relative">
+                <div class="absolute inset-0 bg-rose/5 blur-3xl rounded-full scale-110"></div>
+                <div
+                    class="reveal-up hero-img-container w-80 h-80 md:w-[500px] md:h-[500px] 3xl:w-[700px] 3xl:h-[700px] 5xl:w-[1000px] 5xl:h-[1000px] overflow-hidden border-4 3xl:border-8 border-white shadow-2xl relative z-10">
+                    <img src="https://lh3.googleusercontent.com/d/1kJO2NYqBfGZhbPt6fka-XUNTl279bjwf"
+                        alt="Shreeya Gulawani" class="w-full h-full object-cover transition-all duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="py-32 3xl:py-48 5xl:py-64 px-6 3xl:px-12 bg-white text-rendering-geometric">
+        <div class="max-w-6xl 3xl:max-w-[1600px] 4xl:max-w-[2000px] 5xl:max-w-[3000px] mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 3xl:gap-32 items-start">
+                <!-- Left Column: Heading -->
+                <div class="space-y-4 3xl:space-y-8">
+                    <p class="text-xs 3xl:text-base font-bold uppercase tracking-[0.3em] text-rose mb-6">Professional
+                        Profile</p>
+                    <h2 class="text-5xl md:text-6xl 3xl:text-8xl 5xl:text-9xl font-serif leading-tight text-dark">
+                        Sculpting Stories from Statistics
+                    </h2>
+                </div>
+
+                <!-- Right Column: Description -->
+                <div class="space-y-6 3xl:space-y-12 text-mocha/80 3xl:text-2xl 5xl:text-4xl leading-relaxed">
+                    <p>
+                        Data analysis is the art of transforming raw information into strategic intelligence. With a
+                        robust foundation in <span class="font-bold text-dark">Data Science</span> and specialization in
+                        <span class="font-bold text-dark">Predictive Analytics</span>, I approach insights not as
+                        isolated findings, but as interconnected narratives that drive business outcomes.
+                    </p>
+                    <p>
+                        My expertise lies in the intersection of <span class="font-bold text-dark">Advanced
+                            Analytics</span> and <span class="font-bold text-dark">Business Strategy</span>. Whether
+                        it's architecting dashboards or engineering data pipelines, I'm driven to achieve exceptional
+                        clarity and actionable intelligence. From exploratory analysis to predictive modeling, my work
+                        spans the full spectrum of the analytics lifecycle.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- Professional Statement -->
+            <div class="mt-24 3xl:mt-40 text-center">
+                <p
+                    class="text-3xl md:text-4xl 3xl:text-6xl 5xl:text-8xl font-serif italic text-dark leading-relaxed max-w-4xl 3xl:max-w-6xl mx-auto">
+                    "Architecting scalable insight ecosystems that bridge the gap between raw data engineering and
+                    executive strategy."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 3xl:py-48 5xl:py-64 px-6 3xl:px-12 bg-[#F8F7F4]">
+        <div class="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[2000px] 5xl:max-w-[3000px] mx-auto">
+            <div class="mb-16 3xl:mb-32 text-center">
+                <h3 class="text-4xl md:text-5xl 3xl:text-7xl 5xl:text-9xl font-serif italic mb-4 3xl:mb-8">Technical
+                    Expertise</h3>
+                <p class="text-xs 3xl:text-base font-bold uppercase tracking-[0.3em] text-rose">Tools & Technologies</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 3xl:gap-12">
+
+                <!-- Category 1: Languages & Databases -->
+                <div class="reveal-up bento-card bg-white p-8 rounded-[2rem]">
+                    <div class="w-12 h-12 bg-rose/10 rounded-xl flex items-center justify-center mb-6 text-rose">
+                        <i data-lucide="code-2" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif mb-4">Languages & Databases</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Python</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">SQL</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">R</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">NQL</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">PostgreSQL</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">SQL Server</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Cloud & Platforms -->
+                <div class="reveal-up bento-card bg-white p-8 rounded-[2rem]">
+                    <div class="w-12 h-12 bg-rose/10 rounded-xl flex items-center justify-center mb-6 text-rose">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif mb-4">Cloud & Platforms</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Microsoft
+                            Azure</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Databricks</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Snowflake</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Nexthink</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Google Colab</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: Tools & Workflow -->
+                <div class="reveal-up bento-card bg-white p-8 rounded-[2rem]">
+                    <div class="w-12 h-12 bg-rose/10 rounded-xl flex items-center justify-center mb-6 text-rose">
+                        <i data-lucide="wrench" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif mb-4">Tools & Workflow</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Jira</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Confluence</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">Jupyter
+                            Notebooks</span>
+                        <span class="px-3 py-1 bg-[#F8F7F4] rounded-lg text-xs font-bold text-mocha">PyCharm</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: BI & Visualization -->
+                <div class="reveal-up bento-card bg-white p-8 rounded-[2rem]">
+                    <div class="w-12 h-12 bg-rose/10 rounded-xl flex items-center justify-center mb-6 text-rose">
+                        <i data-lucide="pie-chart" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif mb-4">BI & Visualization</h4>
+                    <ul class="space-y-2 text-sm text-mocha/70">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Power BI & Power Query
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Tableau
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Looker Studio
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Excel & Google Sheets
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Power Automate
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 5: Data Science & Stats -->
+                <div class="reveal-up bento-card bg-white p-8 rounded-[2rem]">
+                    <div class="w-12 h-12 bg-rose/10 rounded-xl flex items-center justify-center mb-6 text-rose">
+                        <i data-lucide="search" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif mb-4">Data Science & Stats</h4>
+                    <ul class="space-y-2 text-sm text-mocha/70">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Exploratory Data Analysis (EDA)
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Regression & Clustering
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Time Series Forecasting
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>A/B Testing
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Feature Engineering
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Churn Analysis
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Missing Data Imputation
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 6: Machine Learning -->
+                <div class="reveal-up bento-card bg-white p-8 rounded-[2rem]">
+                    <div class="w-12 h-12 bg-rose/10 rounded-xl flex items-center justify-center mb-6 text-rose">
+                        <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-serif mb-4">Machine Learning</h4>
+                    <ul class="space-y-2 text-sm text-mocha/70">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Scikit-learn
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>TensorFlow / Keras
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Predictive Modelling
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Hyperparameter Tuning
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 bg-rose rounded-full"></div>Model Evaluation
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 3xl:py-48 5xl:py-64 px-6 3xl:px-12">
+        <div class="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[2000px] 5xl:max-w-[3000px] mx-auto">
+            <div class="mb-16 3xl:mb-32 text-center">
+                <h3 class="text-4xl md:text-5xl 3xl:text-7xl 5xl:text-9xl font-serif italic mb-4 3xl:mb-8">Academic and
+                    Professional Projects</h3>
+                <a href="https://github.com/Shreeya965" target="_blank"
+                    class="inline-flex items-center gap-2 text-xs 3xl:text-base font-bold uppercase tracking-widest text-rose hover:underline">
+                    View Full Profile <i data-lucide="arrow-right" class="w-4 h-4 3xl:w-6 3xl:h-6"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 3xl:gap-16">
+
+                <!-- Project 1 -->
+                <div
+                    class="reveal-up group relative bg-white border border-mocha/10 p-8 rounded-[2rem] hover:shadow-soft transition-all">
+                    <div class="absolute top-8 right-8 text-mocha/20 group-hover:text-rose transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold text-rose uppercase tracking-widest mb-4">Deep Learning</div>
+                    <a href="https://github.com/Shreeya965/Human-Activity-Recognition" target="_blank"
+                        class="group/title">
+                        <h4 class="text-2xl font-serif mb-4 group-hover/title:text-rose transition-colors">
+                            Human Activity Recognition Using Deep Learning</h4>
+                    </a>
+                    <p class="text-sm text-mocha/70 mb-6 leading-relaxed">
+                        Advanced classification system identifying complex human activities from visual data.
+                        Engineered using hybrid CNN-LSTM architectures for high-precision sequence modeling.
+                    </p>
+                    <div class="flex items-center gap-6 text-xs font-bold text-dark mb-6">
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-rose"></i> CNN
+                            +
+                            LSTM</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-rose"></i>
+                            Video
+                            Analytics</span>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex gap-2">
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Python</span>
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">TensorFlow</span>
+                        </div>
+                        <a href="https://github.com/Shreeya965/Human-Activity-Recognition" target="_blank"
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-rose transition-colors">
+                            <i data-lucide="github" class="w-3 h-3"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="reveal-up group relative bg-white border border-mocha/10 p-8 rounded-[2rem] hover:shadow-soft transition-all">
+                    <div class="absolute top-8 right-8 text-mocha/20 group-hover:text-rose transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold text-rose uppercase tracking-widest mb-4">Healthcare AI</div>
+                    <a href="https://github.com/Shreeya965/MSc-DataScience-Projects/blob/main/BrainTumour%20Detection.ipynb"
+                        target="_blank" class="group/title">
+                        <h4 class="text-2xl font-serif mb-4 group-hover/title:text-rose transition-colors">
+                            Medical Image Analysis: Brain Tumor Classification with CNNs</h4>
+                    </a>
+                    <p class="text-sm text-mocha/70 mb-6 leading-relaxed">
+                        Diagnostic assistance system designed for radiologist workflows. Utilizes deep convolutional
+                        networks to classify malignant and benign tumors from MRI imagery.
+                    </p>
+                    <div class="flex items-center gap-6 text-xs font-bold text-dark mb-6">
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-rose"></i> 94%
+                            Accuracy</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-rose"></i> MRI
+                            Diagnostic</span>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex gap-2">
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Keras</span>
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">OpenCV</span>
+                        </div>
+                        <a href="https://github.com/Shreeya965/MSc-DataScience-Projects/blob/main/BrainTumour%20Detection.ipynb"
+                            target="_blank"
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-rose transition-colors">
+                            <i data-lucide="github" class="w-3 h-3"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="reveal-up group relative bg-white border border-mocha/10 p-8 rounded-[2rem] hover:shadow-soft transition-all">
+                    <div class="absolute top-8 right-8 text-mocha/20 group-hover:text-rose transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold text-rose uppercase tracking-widest mb-4">Predictive Analytics</div>
+                    <a href="https://github.com/Shreeya965/MSc-DataScience-Projects/blob/main/Cars%20Price%20Prediction.ipynb"
+                        target="_blank" class="group/title">
+                        <h4 class="text-2xl font-serif mb-4 group-hover/title:text-rose transition-colors">
+                            Machine Learning Pipeline for Automotive Price Forecasting</h4>
+                    </a>
+                    <p class="text-sm text-mocha/70 mb-6 leading-relaxed">
+                        End-to-end regression pipeline for automotive market analysis. Incorporates complex feature
+                        engineering and outlier detection to predict vehicle valuations.
+                    </p>
+                    <div class="flex items-center gap-6 text-xs font-bold text-dark mb-6">
+                        <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3 text-rose"></i> Time
+                            Series</span>
+                        <span class="flex items-center gap-1"><i data-lucide="trending-up"
+                                class="w-3 h-3 text-rose"></i> Market Insights</span>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex gap-2">
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Scikit-learn</span>
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Regression</span>
+                        </div>
+                        <a href="https://github.com/Shreeya965/MSc-DataScience-Projects/blob/main/Cars%20Price%20Prediction.ipynb"
+                            target="_blank"
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-rose transition-colors">
+                            <i data-lucide="github" class="w-3 h-3"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div
+                    class="reveal-up group relative bg-white border border-mocha/10 p-8 rounded-[2rem] hover:shadow-soft transition-all">
+                    <div class="absolute top-8 right-8 text-mocha/20 group-hover:text-rose transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold text-rose uppercase tracking-widest mb-4">Business Strategy</div>
+                    <a href="https://github.com/Shreeya965/telecom-churn-retention-analytics" target="_blank"
+                        class="group/title">
+                        <h4 class="text-2xl font-serif mb-4 group-hover/title:text-rose transition-colors">
+                            Telecom Churn Retention Analysis</h4>
+                    </a>
+                    <p class="text-sm text-mocha/70 mb-6 leading-relaxed">
+                        Data-driven retention model identifying key factors behind customer attrition. Developed
+                        strategic recommendations to minimize churn and maximize lifetime value (LTV).
+                    </p>
+                    <div class="flex items-center gap-6 text-xs font-bold text-dark mb-6">
+                        <span class="flex items-center gap-1"><i data-lucide="trending-up"
+                                class="w-3 h-3 text-rose"></i> 18% Churn Drop</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-rose"></i>
+                            Retention</span>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex gap-2">
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Python</span>
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Pandas</span>
+                        </div>
+                        <a href="https://github.com/Shreeya965/telecom-churn-retention-analytics" target="_blank"
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-rose transition-colors">
+                            <i data-lucide="github" class="w-3 h-3"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div
+                    class="reveal-up group relative bg-white border border-mocha/10 p-8 rounded-[2rem] hover:shadow-soft transition-all">
+                    <div class="absolute top-8 right-8 text-mocha/20 group-hover:text-rose transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold text-rose uppercase tracking-widest mb-4">Operations</div>
+                    <a href="https://github.com/Shreeya965/Supply-Chain-Bottelneck-Identification" target="_blank"
+                        class="group/title">
+                        <h4 class="text-2xl font-serif mb-4 group-hover/title:text-rose transition-colors">
+                            Supply Chain Bottleneck Identification</h4>
+                    </a>
+                    <p class="text-sm text-mocha/70 mb-6 leading-relaxed">
+                        Operational efficiency study using transactional data to identify logistics congestion. Analyzed
+                        throughput and lead times to optimize supply chain resilience.
+                    </p>
+                    <div class="flex items-center gap-6 text-xs font-bold text-dark mb-6">
+                        <span class="flex items-center gap-1"><i data-lucide="layers" class="w-3 h-3 text-rose"></i>
+                            Logistics</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-rose"></i>
+                            Efficiency</span>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex gap-2">
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Optimization</span>
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">SQL</span>
+                        </div>
+                        <a href="https://github.com/Shreeya965/Supply-Chain-Bottelneck-Identification" target="_blank"
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-rose transition-colors">
+                            <i data-lucide="github" class="w-3 h-3"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div
+                    class="reveal-up group relative bg-white border border-mocha/10 p-8 rounded-[2rem] hover:shadow-soft transition-all">
+                    <div class="absolute top-8 right-8 text-mocha/20 group-hover:text-rose transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-xs font-bold text-rose uppercase tracking-widest mb-4">Public Health</div>
+                    <a href="https://github.com/Shreeya965/Covid-19-Data-Analysis/blob/main/Covid_19_EDA.ipynb"
+                        target="_blank" class="group/title">
+                        <h4 class="text-2xl font-serif mb-4 group-hover/title:text-rose transition-colors">
+                            Covid-19 Data Analysis</h4>
+                    </a>
+                    <p class="text-sm text-mocha/70 mb-6 leading-relaxed">
+                        Exploratory Data Analysis (EDA) of global pandemic trends. Translated raw public health datasets
+                        into interactive visualizations to study infection trajectories.
+                    </p>
+                    <div class="flex items-center gap-6 text-xs font-bold text-dark mb-6">
+                        <span class="flex items-center gap-1"><i data-lucide="bar-chart-2"
+                                class="w-3 h-3 text-rose"></i> Interactive</span>
+                        <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-rose"></i>
+                            EDA</span>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <div class="flex gap-2">
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Visualization</span>
+                            <span
+                                class="px-2 py-1 bg-[#F8F7F4] rounded text-[10px] uppercase font-bold text-mocha/60">Python</span>
+                        </div>
+                        <a href="https://github.com/Shreeya965/Covid-19-Data-Analysis/blob/main/Covid_19_EDA.ipynb"
+                            target="_blank"
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-dark text-white text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-rose transition-colors">
+                            <i data-lucide="github" class="w-3 h-3"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-32 3xl:py-48 5xl:py-64 px-6 3xl:px-12 bg-[#F8F7F4]">
+        <div class="max-w-5xl 3xl:max-w-[1400px] 5xl:max-w-[2400px] mx-auto space-y-16 3xl:space-y-32">
+            <div class="text-center">
+                <h3 class="text-4xl md:text-5xl 3xl:text-7xl 5xl:text-9xl font-serif italic mb-4 3xl:mb-8">
+                    Certifications</h3>
+                <p class="text-xs 3xl:text-base font-bold uppercase tracking-[0.3em] text-rose">Professional Milestones
+                </p>
+            </div>
+
+            <div class="space-y-8 3xl:space-y-16">
+                <!-- Cert 1 -->
+                <div
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 flex flex-col md:flex-row gap-8 items-center md:items-start hover:shadow-soft transition-all">
+                    <div class="w-20 h-20 bg-rose/10 rounded-2xl flex items-center justify-center shrink-0 text-rose">
+                        <i data-lucide="briefcase" class="w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-serif mb-2">Deloitte Australia - Data Analytics Job Simulation</h3>
+                        <p class="text-mocha/60 text-sm mb-4">Forage</p>
+                        <p class="text-mocha/80">Practical simulation of data analytics tasks and workflows in a
+                            professional consulting environment.</p>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 flex flex-col md:flex-row gap-8 items-center md:items-start hover:shadow-soft transition-all">
+                    <div class="w-20 h-20 bg-rose/10 rounded-2xl flex items-center justify-center shrink-0 text-rose">
+                        <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-serif mb-2">Learning Data Analytics</h3>
+                        <p class="text-mocha/60 text-sm mb-4">LinkedIn Learning</p>
+                        <p class="text-mocha/80">Comprehensive course covering fundamental and advanced data analytics
+                            concepts and tools.</p>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 flex flex-col md:flex-row gap-8 items-center md:items-start hover:shadow-soft transition-all">
+                    <div class="w-20 h-20 bg-rose/10 rounded-2xl flex items-center justify-center shrink-0 text-rose">
+                        <i data-lucide="code" class="w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-serif mb-2">Python Programming</h3>
+                        <p class="text-mocha/60 text-sm mb-4">Java By Kiran</p>
+                        <p class="text-mocha/80">Intensive training in Python programming fundamentals and advanced
+                            concepts.</p>
+                    </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 flex flex-col md:flex-row gap-8 items-center md:items-start hover:shadow-soft transition-all">
+                    <div class="w-20 h-20 bg-rose/10 rounded-2xl flex items-center justify-center shrink-0 text-rose">
+                        <i data-lucide="brain-circuit" class="w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-serif mb-2">4 Weeks Training on Machine Learning</h3>
+                        <p class="text-mocha/60 text-sm mb-4">Internship Studio</p>
+                        <p class="text-mocha/80">Hands-on training in machine learning algorithms, model building, and
+                            practical applications.</p>
+                    </div>
+                </div>
+
+                <!-- Cert 5 -->
+                <div
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 flex flex-col md:flex-row gap-8 items-center md:items-start hover:shadow-soft transition-all">
+                    <div class="w-20 h-20 bg-rose/10 rounded-2xl flex items-center justify-center shrink-0 text-rose">
+                        <i data-lucide="database" class="w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-serif mb-2">5 Day Data Science Workshop</h3>
+                        <p class="text-mocha/60 text-sm mb-4">GreyAtom</p>
+                        <p class="text-mocha/80">Intensive workshop covering data science methodologies, tools, and
+                            real-world applications.</p>
+                    </div>
+                </div>
+
+                <!-- Cert 6 -->
+                <div
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 flex flex-col md:flex-row gap-8 items-center md:items-start hover:shadow-soft transition-all">
+                    <div class="w-20 h-20 bg-rose/10 rounded-2xl flex items-center justify-center shrink-0 text-rose">
+                        <i data-lucide="bar-chart-2" class="w-8 h-8"></i>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-serif mb-2">10 Day Workshop on Data Analysis</h3>
+                        <p class="text-mocha/60 text-sm mb-4">Finland Labs</p>
+                        <p class="text-mocha/80">Comprehensive workshop on data analysis techniques, visualization, and
+                            interpretation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 3xl:py-48 5xl:py-64 px-6 3xl:px-12">
+        <div class="max-w-5xl 3xl:max-w-[1400px] 5xl:max-w-[2400px] mx-auto">
+            <div class="text-center mb-16 3xl:mb-32">
+                <h2 class="reveal-up text-5xl md:text-6xl 3xl:text-8xl 5xl:text-9xl font-serif text-dark mb-4 3xl:mb-8">
+                    Contact <span class="italic text-rose">Me</span>
+                </h2>
+                <p class="reveal-up text-xs 3xl:text-base font-bold uppercase tracking-[0.3em] text-rose">Let's Connect
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 3xl:gap-16">
+                <!-- Phone -->
+                <div
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 text-center hover:shadow-soft transition-all group">
+                    <div
+                        class="w-16 h-16 bg-rose/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-rose group-hover:bg-rose group-hover:text-white transition-colors">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-mocha/40 mb-2">Phone</h4>
+                    <p class="text-lg font-sans font-semibold text-dark">+91 9657767937</p>
+                </div>
+
+                <!-- Email -->
+                <a href="mailto:shreeyagulawani16@gmail.com"
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 text-center hover:shadow-soft transition-all group">
+                    <div
+                        class="w-16 h-16 bg-rose/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-rose group-hover:bg-rose group-hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-mocha/40 mb-2">Email</h4>
+                    <p class="text-lg font-sans font-semibold text-dark">shreeyagulawani16@gmail.com</p>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/shreeya-gulawani" target="_blank"
+                    class="reveal-up bg-white p-8 rounded-[2rem] border border-mocha/10 text-center hover:shadow-soft transition-all group">
+                    <div
+                        class="w-16 h-16 bg-rose/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-rose group-hover:bg-rose group-hover:text-white transition-colors">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-mocha/40 mb-2">LinkedIn</h4>
+                    <p class="text-lg font-sans font-semibold text-dark">shreeya-gulawani</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-cream py-24 3xl:py-48 px-6 3xl:px-12 text-center">
+        <h2 class="text-4xl md:text-6xl 3xl:text-8xl 5xl:text-9xl font-serif italic mb-12 3xl:mb-24">Let's build
+            intelligence.</h2>
+
+        <p class="text-[10px] 3xl:text-sm opacity-30 uppercase tracking-widest">© 2026 Shreeya Gulawani</p>
+    </footer>
+
+</body>
+
+</html>
